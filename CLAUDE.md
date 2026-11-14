@@ -7,7 +7,7 @@ This builds a Japanese→Korean dictionary for Yomitan: the JMdict structure plu
 - **Distributable sources only** (CC BY-SA family: JMdict, KANJIDIC2, Wiktionary, krdict). Never scrape Naver, Daum or other commercial dictionaries, not even "for hints".
 - Translation backend is the **`claude` CLI on the user's subscription** (`jako/llm.py`). There is no API key. Your own session draws on the same account quota, so keep your own work lean while translations run.
 - Python must stay 3.9-compatible: no `match`, no `X | Y` type unions.
-- The GitHub repo `kongchu2/jmdict-ko` (renamed from japanese-dictionary-yomitan) is **private**. Do not make it public unless the user asks.
+- The GitHub repo `kongchu2/jmdict-ko` (renamed from japanese-dictionary-yomitan) is **public**. Everything committed here, including this file, is visible to anyone, so never commit credentials, local paths or personal notes.
 
 ## Layout
 
@@ -70,7 +70,7 @@ End commit messages with the attribution line from the current session's system 
   - A spot check found most of them acceptable. Real errors seen include fake Sino-Korean readings (一過 → 일과), wrong domain terms (下駄 in go → "덤 효과의 이득"), and loanword spelling (ドック → 독 rather than 도크).
   - Fixed 2026-11-03: "(고어)" on 169 senses JMdict doesn't tag `arch`/`obs`/`dated` removed; 21 glosses with English mixed in (시트belt, 저녁noon, …) hand-fixed; 13 duplicate glosses removed. Since 2026-11-03 `_valid_senses` also rejects lowercase English words (`_has_english` in `jako/translate.py`; acronyms, units, single letters, binomial names and quoted text pass). Two leaks it found were fixed by hand (盈虧 `기�häu`, 非行 `non`).
   - 49 multi-sense entries have the same gloss for every sense; most are correct in Korean (バス, 内科). The user chose to leave them.
-- Not done yet: example sentences (Tatoeba) in the output; using krdict / kowiktionary as translation hints; Yomitan's in-app update check (works only once the repo is public).
+- Not done yet: example sentences (Tatoeba) in the output; using krdict / kowiktionary as translation hints.
 
 ## Translation prompt decisions (`TERMS_SYSTEM` in jako/translate.py)
 
