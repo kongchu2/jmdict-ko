@@ -1,5 +1,9 @@
 # JMdict-ko — Yomitan용 일한사전
 
+> Yomitan이 처음이라면 [설치 안내](https://kongchu2.github.io/yomitan-ko/)부터 보세요.
+> 자매 사전: [영어 → 한국어 (Wiktionary-en-ko)](https://github.com/kongchu2/wiktionary-en-ko) · [중국어 → 한국어 (CC-CEDICT-ko)](https://github.com/kongchu2/cedict-ko)
+> 틀린 뜻을 발견하면 [오역 제보](../../issues/new?template=mistranslation.yml)로 알려 주세요.
+
 [Yomitan](https://github.com/yomidevs/yomitan)에서 쓰는 **일본어→한국어** 사전입니다.
 [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html)의 표제어, 읽기, 품사, 뜻 구분을 그대로 쓰고, 각 뜻을 LLM으로 한국어로 번역했습니다.
 
@@ -62,3 +66,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 - 사전 데이터(`translations/`, 빌드된 zip): [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
   JMdict와 KANJIDIC2의 파생물입니다. 원본 © [Electronic Dictionary Research and Development Group](https://www.edrdg.org/edrdg/licence.html).
 - 번역 순서를 정할 때 쓰는 빈도 데이터: [wordfreq](https://github.com/rspeer/wordfreq) (CC BY-SA 4.0). 빌드 결과물에는 포함되지 않습니다.
+
+## English
+
+JMdict-ko is a Japanese→Korean dictionary for [Yomitan](https://github.com/yomidevs/yomitan). It keeps the entries, readings, parts of speech and sense divisions of [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) and gives each sense in Korean. The Korean glosses are machine-translated with an LLM (Claude): the original English glosses are kept in a collapsed section of every entry, and entries the model was unsure about are marked. The 50,049 most frequent entries are translated so far. `kanjidic-ko.zip` is a kanji dictionary with Korean 훈음 (meaning and Sino-Korean reading). Download both from [Releases](../../releases/latest) and import them in Yomitan → Settings → Dictionaries. Data: CC BY-SA 4.0; code: MIT.
