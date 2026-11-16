@@ -1,6 +1,6 @@
 # JMdict-ko: a Japanese→Korean dictionary for Yomitan
 
-> Sister dictionaries: [English → Korean (Wiktionary-en-ko)](https://github.com/kongchu2/wiktionary-en-ko) · [Chinese → Korean (CC-CEDICT-ko)](https://github.com/kongchu2/cedict-ko). Korean install guide: https://kongchu2.github.io/yomitan-ko/
+> Korean install guide: https://kongchu2.github.io/yomitan-ko/
 > Found a wrong gloss? [Report a mistranslation](../../issues/new?template=mistranslation.yml).
 
 [한국어](README.md) · English
