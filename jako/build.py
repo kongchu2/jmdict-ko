@@ -150,8 +150,18 @@ def build_terms(include_untranslated=False):
         if tr is None and not include_untranslated:
             continue
         n_entries += 1
-        for k, r in jmdict.headwords(e):
-            idx = jmdict.sense_indices(e, k, r)
+        pairs = [(k, r, jmdict.sense_indices(e, k, r)) for k, r in jmdict.headwords(e)]
+        # Words usually written in kana (ふと for 不図) also get a kana headword for those senses.
+        # Yomitan ranks a headword that equals the looked-up text first; without this row the
+        # everyday word sorts below rarer homophones that happen to have regular kanji.
+        has_kana_row = {r["text"] for k, r, _ in pairs if k is None}
+        for r in e["kana"]:
+            if r["text"] in has_kana_row or jmdict.SEARCH_ONLY & set(r["tags"]):
+                continue
+            uk = [i for i in jmdict.sense_indices(e, None, r) if "uk" in e["sense"][i]["misc"]]
+            if uk:
+                pairs.append((None, r, uk))
+        for k, r, idx in pairs:
             if not idx:
                 continue
             form = k or r
